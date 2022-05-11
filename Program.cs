@@ -1,41 +1,35 @@
 ﻿public class MetodoEliminaçãoDeGauss {
-    public static int [,] matriz () {
-        int [,] matrizTeste = {{2,1,4},{2,1,3}};
+    public static float [,] matriz () {
+        float [,] matrizTeste = {{3, 2, 4, 1},{1, 1, 2, 2},{4, 3, -2, 3}};
         return matrizTeste;
     }
 
-    public static int multiplicador(int l) {
-        int pivo = 0;
-            int multiplicador = 0;
-        for (int i=0; i <= matriz().GetLength(0); i++) {
-                for (int j=0; j <= matriz().GetLength(0); j++) {
-                    pivo = matriz()[l,l];
-                    return multiplicador = matriz()[i,j]/pivo;
-                }
-            }
-        return multiplicador;
+    public static float multiplicador(int l, int etapa) {
+        float pivo = matriz()[etapa - 1, etapa - 1];
+        float mult = matriz()[l, etapa-1]/pivo;
+        return mult; 
     }
 
-    public static void atualizarMatriz(int [,] matriz, int valorAtualiazado, int posI, int posJ) {
-
-        
-    }
-
-    public static void eliminacaoGauss () {
-        int pivo = 0;
-        int valorLi = 0;
-        for (int i=1; i <= matriz().GetLength(0); i++) {
-                for (int j=1; j <= matriz().GetLength(1); j++) {
-                    if (i == 1) {
-                        break;
+    public static void eliminacaoGauss (float [,] matriz) {
+        int etapa = 1;
+        for (int i=0; i < matriz.GetLength(0); i++) {
+            float mult = 0;
+            mult = i != 0 ? multiplicador(i, etapa) : mult = 0;
+                for (int j=0; j < matriz.GetLength(1); j++) {
+                    float valorLi = 0;
+                    if (i != 0) {
+                        valorLi = matriz[i, j] - mult * matriz[etapa - 1, j];
+                        Console.Write(valorLi + " ");
                     }
-                    pivo = matriz()[i,i];
-                    valorLi = multiplicador(i - 1);
                 }
+                Console.Write("\n");
             }
+            etapa ++; //é passado como método na chamada da função multiplicador()
     }
 
     public static void Main () {
-        Console.WriteLine(eliminacaoGauss());
+        float [,] matrizTeste = {{3, 2, 4, 1},{1, 1, 2, 2},{4, 3, -2, 3}};
+
+        eliminacaoGauss(matrizTeste);
     }
 }
