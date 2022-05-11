@@ -28,20 +28,22 @@
     }
 
     public static void Main () {
-
+        
         float [,] matriz = {{3, 2, 4, 1},{1, 1, 2, 2},{4, 3, -2, 3}};
-        float [,] novaMatriz = new float[3, 4];
-
+        int quantLinhasMatriz = matriz.GetLength(0);
+        int quantColunasMatriz = matriz.GetLength(1);
+        float [,] novaMatriz = new float[quantLinhasMatriz, quantColunasMatriz];
+        
         int etapa = 1;
-        while (etapa < matriz.GetLength(1)-1) {
-            for (int i=0; i < matriz.GetLength(0); i++) {
+        //while (etapa < quantLinhasMatriz) {
+            for (int i=0; i < quantLinhasMatriz; i++) {
             float mult = 0;
-            if (i != 0 && i < matriz.GetLength(1))
+            if (i != 0 && i < quantLinhasMatriz)
             {
                 mult = multiplicador(i, etapa);
             }
-            mult = i != 0 && i < matriz.GetLength(1) ? multiplicador(i, etapa) : mult = 0;
-                for (int j=0; j < matriz.GetLength(1); j++) {
+            //mult = i != 0 && i < quantLinhasMatriz ? multiplicador(i, etapa) : mult = 0;
+                for (int j=0; j < quantColunasMatriz; j++) {
                     novaMatriz[i, j] = matriz[i, j];
                     if (i != 0) {
                         novaMatriz[i, j] = matriz[i, j] - mult * matriz[etapa - 1, j];
@@ -49,9 +51,10 @@
                 }
             }
             etapa ++;
-        }
+        //}
         
-
+            //Console.WriteLine(quantLinhasMatriz);
+            //Console.WriteLine(quantColunasMatriz);
 
             for (int i=0; i < matriz.GetLength(0); i++) {
                 for (int j=0; j < matriz.GetLength(1); j++) {
