@@ -1,25 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\labinfo\\.vscode\\Repos\\MetodoEliminacaoDeGauss\\MetodoElimina-oDeGauss.csproj": {}
+    "C:\\Users\\giovane.rocha\\RepositórioGit\\MetodoEliminacaoDeGauss\\MetodoElimina-oDeGauss.csproj": {}
   },
   "projects": {
-    "C:\\Users\\labinfo\\.vscode\\Repos\\MetodoEliminacaoDeGauss\\MetodoElimina-oDeGauss.csproj": {
+    "C:\\Users\\giovane.rocha\\RepositórioGit\\MetodoEliminacaoDeGauss\\MetodoElimina-oDeGauss.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\labinfo\\.vscode\\Repos\\MetodoEliminacaoDeGauss\\MetodoElimina-oDeGauss.csproj",
+        "projectUniqueName": "C:\\Users\\giovane.rocha\\RepositórioGit\\MetodoEliminacaoDeGauss\\MetodoElimina-oDeGauss.csproj",
         "projectName": "MetodoElimina-oDeGauss",
-        "projectPath": "C:\\Users\\labinfo\\.vscode\\Repos\\MetodoEliminacaoDeGauss\\MetodoElimina-oDeGauss.csproj",
-        "packagesPath": "C:\\Users\\labinfo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\labinfo\\.vscode\\Repos\\MetodoEliminacaoDeGauss\\obj\\",
+        "projectPath": "C:\\Users\\giovane.rocha\\RepositórioGit\\MetodoEliminacaoDeGauss\\MetodoElimina-oDeGauss.csproj",
+        "packagesPath": "C:\\Users\\giovane.rocha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\giovane.rocha\\RepositórioGit\\MetodoEliminacaoDeGauss\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\labinfo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\giovane.rocha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -52,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

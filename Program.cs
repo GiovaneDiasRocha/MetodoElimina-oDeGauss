@@ -14,7 +14,7 @@
         int etapa = 1;
         for (int i=0; i < matriz.GetLength(0); i++) {
             float mult = 0;
-            mult = i != 0 ? multiplicador(i, etapa) : mult = 0;
+            mult = i != 0 && etapa < matriz.GetLength(1) ? multiplicador(i, etapa) : mult = 0;
                 for (int j=0; j < matriz.GetLength(1); j++) {
                     float valorLi = 0;
                     if (i != 0) {
@@ -28,8 +28,37 @@
     }
 
     public static void Main () {
-        float [,] matrizTeste = {{3, 2, 4, 1},{1, 1, 2, 2},{4, 3, -2, 3}};
 
-        eliminacaoGauss(matrizTeste);
+        float [,] matriz = {{3, 2, 4, 1},{1, 1, 2, 2},{4, 3, -2, 3}};
+        float [,] novaMatriz = new float[3, 4];
+
+        int etapa = 1;
+        while (etapa < matriz.GetLength(1)-1) {
+            for (int i=0; i < matriz.GetLength(0); i++) {
+            float mult = 0;
+            if (i != 0 && i < matriz.GetLength(1))
+            {
+                mult = multiplicador(i, etapa);
+            }
+            mult = i != 0 && i < matriz.GetLength(1) ? multiplicador(i, etapa) : mult = 0;
+                for (int j=0; j < matriz.GetLength(1); j++) {
+                    novaMatriz[i, j] = matriz[i, j];
+                    if (i != 0) {
+                        novaMatriz[i, j] = matriz[i, j] - mult * matriz[etapa - 1, j];
+                    }
+                }
+            }
+            etapa ++;
+        }
+        
+
+
+            for (int i=0; i < matriz.GetLength(0); i++) {
+                for (int j=0; j < matriz.GetLength(1); j++) {
+                    Console.Write(novaMatriz[i, j] + " ");
+                }
+                Console.Write("\n");
+            }
+        
     }
 }
