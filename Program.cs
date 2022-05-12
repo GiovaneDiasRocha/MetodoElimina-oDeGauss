@@ -13,10 +13,9 @@
         return mult;
     }
 
-    public static float [,] eliminacaoGauss(float[,] matriz, int quantLinhasMatriz, int quantColunasMatriz)
+    public static float [,] eliminacaoGauss(float[,] matriz, int quantLinhasMatriz, int quantColunasMatriz, int etapa = 1)
     {
         float[,] novaMatriz = new float[quantLinhasMatriz, quantColunasMatriz];
-        int etapa = 1;
         for (int i = 0; i < quantLinhasMatriz; i++)
         {
             float mult = 0;
@@ -27,11 +26,19 @@
             for (int j = 0; j < quantColunasMatriz; j++)
             {
                 novaMatriz[i, j] = matriz[i, j];
-                if (i != 0)
+                if (i >= etapa)
                 {
                     novaMatriz[i, j] = matriz[i, j] - mult * matriz[etapa - 1, j];
                 }
             }
+        }
+        etapa++;//Ao invés de fazer método recursivo, tentar fazer a etapa ser passada na chamada do método
+        if (etapa < quantLinhasMatriz)
+        {   
+            
+            eliminacaoGauss(novaMatriz, quantLinhasMatriz, quantColunasMatriz, etapa);
+        } else {
+            return novaMatriz;
         }
         return novaMatriz;
     }
