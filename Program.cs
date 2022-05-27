@@ -33,14 +33,15 @@
 
         float [] resultadoSomatorio = new float [quantLinhasMatriz];
         float resultadoAux = 0;
-        int n = 0, j = 0;
+        int n = quantLinhasMatriz, j = 0;
         for (int i = 0; i < quantLinhasMatriz; i++)
         {
-            while (n < quantLinhasMatriz) {
+            while (n <= quantLinhasMatriz) {
                 j++;
-                resultadoAux += matriz[i, j] * resultadoSomatorio[n];
+                resultadoAux += (matriz[i, j] * resultadoSomatorio[n-1]);
                 n++;
             }
+            n--;
             resultadoSomatorio[i] = resultadoAux / matriz[i, i];
         }
 
@@ -74,7 +75,7 @@
         //                      matriz[1, 1]x2 + matriz[1, 2]x3 = matriz[1, 3]
         //                                       matriz[2, 2]x3 = matriz[2, 3]
 
-        //float x1, x2, x3;
+        // float x1, x2, x3;
 
         // x3 = matriz[2, 3] / matriz[2, 2];
         // x2 = (matriz[1, 3] - matriz[1, 2] * x3) / matriz[1, 1];
@@ -89,8 +90,8 @@
             Console.Write("\n");
         }
         
-        // Console.WriteLine(x1);
-        // Console.WriteLine(x2);
-        // Console.WriteLine(x3);
+        // Console.WriteLine(Math.Round(x1, 3));
+        // Console.WriteLine(Math.Round(x2, 3));
+        // Console.WriteLine(Math.Round(x3, 3));
     }
 }
