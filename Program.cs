@@ -32,18 +32,32 @@
     public static float [] somatorio (float [,] matriz, int quantLinhasMatriz, int quantColunasMatriz) {
 
         float [] resultadoSomatorio = new float [quantLinhasMatriz];
-        float resultadoAux = 0;
-        int n = quantLinhasMatriz, j = 0;
+        
+        int n, j = 0, linhas = quantLinhasMatriz, colunas  = quantColunasMatriz, aux = quantLinhasMatriz - 1;
         for (int i = 0; i < quantLinhasMatriz; i++)
-        {
-            while (n <= quantLinhasMatriz) {
-                j++;
-                resultadoAux += (matriz[i, j] * resultadoSomatorio[n-1]);
-                n++;
+        {   
+            float resultadoAux = 0;
+            n = i;
+            if (i == 0) {
+                resultadoSomatorio[linhas - 1] = (matriz[linhas  -1, colunas - 1]) / matriz[linhas - 1, linhas - 1];
+            } else {
+                while (n > 0)
+                {
+                    resultadoAux = matriz[aux - 1, colunas  -1] - matriz[aux - 1, linhas  -1];
+                    n--;
+                    linhas--;
+                    //resolver problema com a soma, fazer com que matriz[0, 0] - matriz 0, 3 na ultima etapa
+                }
+                aux--;
+                resultadoSomatorio[aux] = resultadoAux / matriz[i, i];
             }
-            n--;
-            resultadoSomatorio[i] = resultadoAux / matriz[i, i];
         }
+
+        // x3 = matriz[2, 3] / matriz[2, 2];
+        // x2 = (matriz[1, 3] - matriz[1, 2] * x3) / matriz[1, 1];
+        // x1 = (matriz[0, 3] - matriz[0, 1] * x2 - matriz[0, 2] * x3) / matriz[0, 0];
+
+        // resultadoSomatorio[linhas - 1] = matriz[linha  -1] - matriz[coluna - 1]
 
         return resultadoSomatorio;
     }
